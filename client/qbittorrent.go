@@ -81,7 +81,7 @@ func (c *QBittorrent) Connect() error {
 	apiVersion, err := c.client.Application.GetAPIVersion()
 	if err != nil {
 		return fmt.Errorf("get api version: %w", err)
-	} else if stringutils.Atof64(apiVersion[0:3], 0.0) < 2.2 {
+	} else if stringutils.Atof64(apiVersion[0:4], 0.0) < 2.2 {
 		return fmt.Errorf("unsupported webapi version: %v", apiVersion)
 	}
 
